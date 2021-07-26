@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.Inventory">
-   <children>
-      <TableView prefHeight="400.0" prefWidth="442.0">
-        <columns>
-          <TableColumn prefWidth="108.79998779296875" text="Value" />
-          <TableColumn prefWidth="164.800048828125" text="Serial Number" />
-            <TableColumn prefWidth="164.800048828125" text="Name" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="772.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.InventoryListController">
+    <children>
+        <TableView fx:id="inventoryTable" layoutX="50.0" layoutY="98.0" prefHeight="459.0" prefWidth="658.0">
+            <columns>
+                <TableColumn fx:id="serialNumberColumn" prefWidth="148.0" text="Serial Number" />
+                <TableColumn fx:id="nameColumn" prefWidth="283.20001220703125" text="Name" />
+                <TableColumn fx:id="valueColumn" prefWidth="222.40008544921875" text="Value (in USD)" />
+            </columns>
+        </TableView>
+        <Text layoutX="50.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" textAlignment="CENTER" wrappingWidth="184.93670654296875">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Button fx:id="addItemBtn" layoutX="715.0" layoutY="218.0" mnemonicParsing="false" onAction="#addItemButClicked" prefHeight="25.0" prefWidth="88.0" text="Add" />
+        <TextField fx:id="newSerialNum" layoutX="712.0" layoutY="98.0" prefHeight="25.0" prefWidth="220.0" promptText="Serial Number" />
+        <TextField fx:id="newValue" layoutX="712.0" layoutY="170.0" prefHeight="25.0" prefWidth="220.0" promptText="Value" />
+        <TextField fx:id="newName" layoutX="712.0" layoutY="132.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" />
+        <Button fx:id="editItemBtn" layoutX="715.0" layoutY="390.0" mnemonicParsing="false" onAction="#editItemButClicked" prefHeight="25.0" prefWidth="88.0" text="Edit" />
+        <TextField fx:id="editSerialNum" layoutX="712.0" layoutY="265.0" prefHeight="25.0" prefWidth="220.0" promptText="New Serial Number" />
+        <TextField fx:id="editName" layoutX="712.0" layoutY="302.0" prefHeight="25.0" prefWidth="220.0" promptText="New Name " />
+        <TextField fx:id="editValue" layoutX="712.0" layoutY="342.0" prefHeight="25.0" prefWidth="220.0" promptText="New Value" />
+        <Button fx:id="removeBtn" layoutX="714.0" layoutY="427.0" mnemonicParsing="false" onAction="#removeButClicked" prefHeight="25.0" prefWidth="177.0" text="Remove" />
+        <Button fx:id="sortByNameBtn" layoutX="714.0" layoutY="464.0" mnemonicParsing="false" onAction="#sortNameButClicked" prefHeight="25.0" prefWidth="177.0" text="Sort by Name" />
+        <Button fx:id="sortBySerialNumBtn" layoutX="714.0" layoutY="497.0" mnemonicParsing="false" onAction="#sortSerialNumButClicked" prefHeight="25.0" prefWidth="177.0" text="Sort by Serial Number" />
+        <Button fx:id="sortByValueBtn" layoutX="714.0" layoutY="531.0" mnemonicParsing="false" onAction="#sortValueButClicked" prefHeight="25.0" prefWidth="177.0" text="Sort by Value" />
+        <Button fx:id="exportTxtBtn" layoutX="50.0" layoutY="622.0" mnemonicParsing="false" onAction="#exportTxtButClicked" prefHeight="25.0" prefWidth="177.0" text="Export .txt" />
+        <Button fx:id="exportHtmlBtn" layoutX="50.0" layoutY="676.0" mnemonicParsing="false" onAction="#exportHtmlButClicked" prefHeight="25.0" prefWidth="177.0" text="Export .html" />
+        <TextField fx:id="txtName" layoutX="261.0" layoutY="622.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" />
+        <TextField fx:id="txtLocation" layoutX="518.0" layoutY="622.0" prefHeight="25.0" prefWidth="425.0" promptText="Location" />
+        <TextField fx:id="htmlName" layoutX="261.0" layoutY="676.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" />
+        <TextField fx:id="htmlLocation" layoutX="518.0" layoutY="676.0" prefHeight="25.0" prefWidth="425.0" promptText="Location" />
+        <Button fx:id="importBtn" layoutX="50.0" layoutY="720.0" mnemonicParsing="false" onAction="#importButClicked" prefHeight="25.0" prefWidth="177.0" text="Import" />
+        <TextField fx:id="importLocation" layoutX="261.0" layoutY="720.0" prefHeight="25.0" prefWidth="689.0" promptText="Location" />
+        <Button fx:id="searchNameBtn" layoutX="50.0" layoutY="567.0" mnemonicParsing="false" onAction="#searchNameButClicked" prefHeight="25.0" prefWidth="105.0" text="Search Name" />
+        <Button fx:id="searchSerialNumBtn" layoutX="410.0" layoutY="567.0" mnemonicParsing="false" onAction="#searchSerialNumButClicked" prefHeight="26.0" prefWidth="149.0" text="Search Serial Number" />
+        <Button fx:id="viewAllBtn" layoutX="845.0" layoutY="567.0" mnemonicParsing="false" onAction="#viewAllButClicked" prefHeight="25.0" prefWidth="105.0" text="View All" />
+        <TextField fx:id="nameSearch" layoutX="173.0" layoutY="567.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" />
+        <TextField fx:id="serialNumSearch" layoutX="583.0" layoutY="567.0" prefHeight="25.0" prefWidth="220.0" promptText="Serial Number" />
+    </children>
 </AnchorPane>
