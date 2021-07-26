@@ -1,0 +1,113 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class InventoryTracker {
+    + main(String[]): void
+    + start(Stage): void
+}
+
+class InventoryTrackerController {
+
+     - TableView<InventoryItem> inventoryTable
+
+     - TableColumn<InventoryItem, String> serialNumColumn
+     - TableColumn<InventoryItem, String> nameColumn
+     - TableColumn<InventoryItem, Double> valueColumn
+
+     - Button addItemBut
+     - Button removeBut
+     - Button editItemBut
+     - Button sortNameBut
+     - Button sortSerialNumBut
+     - Button sortValueBut
+     - Button searchNameBut
+     - Button searchSerialNumBut
+     - Button viewAllBut
+     - Button exportTxtBut
+     - Button exportHtmlBut
+     - Button importBut
+
+     - TextField newSerialNum
+     - TextField newValue
+     - TextField newName
+     - TextField editSerialNum
+     - TextField editName
+     - TextField editValue
+     - TextField txtName
+     - TextField txtLocation
+     - TextField htmlName
+     - TextField htmlLocation
+     - TextField importLocation
+     - TextField nameSearch
+     - TextField serialNumSearch
+
+     Inventory mainInventory
+     ObservableList<InventoryItem> listItems
+
+     +initialize(URL, ResourceBundle): void
+     addItemButClicked(Event): void
+     removeButClicked(Event): void
+     editItemButClicked(Event): void
+     exportTxtButClicked(Event): void
+     exportHtmlButClicked(Event): void
+     sortNameButClicked(Event): void
+     sortSerialNumButClicked(Event): void
+     sortValueButClicked(Event): void
+     searchNameButClicked(Event): void
+     searchSerialNumButClicked(Event): void
+     viewAllButClicked(Event): void
+     importButClicked(Event): void
+}
+
+class Inventory {
+    ArrayList<InventoryItem> itemsList
+
+    + Inventory()
+
+    + getItems (): ArrayList<InventoryItem>
+
+    + addItem(Item): void
+    + removeItem(String): void
+
+    + editName(String, String): void
+    + editSerialNum(String, String): void
+    + editValue(String, double): void
+
+    + sortName(): void
+    + sortSerialNum(): void
+    + sortValue(): void
+
+    + searchName(String): InventoryItem
+    + searchSerialNum(String): InventoryItem
+
+    + exportTSV(String, String): String
+    + exportHTML(String, String): String
+
+    + importInventory(String): void
+}
+
+class InventoryItem {
+    String name;
+    String serialNum;
+    double value;
+
+    + InventoryItem(String, String, double)
+
+    + setName(String): void
+    + setSerialNum(String): void
+    + setValue(double): void
+
+    + getName(): String
+    + getSerialNum(): String
+    + getValue(): double
+
+    + toString(): String
+}
+
+javafx.Application <|-- InventoryList
+javafx.Initializable <|... InventoryListController
+InventoryList <-- InventoryListController
+InventoryListrController *--> Inventory
+Inventory *-> InventoryItem
+
+@enduml
