@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.Inventory">
+   <children>
+      <TableView prefHeight="400.0" prefWidth="442.0">
+        <columns>
+          <TableColumn prefWidth="108.79998779296875" text="Value" />
+          <TableColumn prefWidth="164.800048828125" text="Serial Number" />
+            <TableColumn prefWidth="164.800048828125" text="Name" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
