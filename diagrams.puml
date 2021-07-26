@@ -1,12 +1,12 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class InventoryTracker {
+class InventoryList {
     + main(String[]): void
     + start(Stage): void
 }
 
-class InventoryTrackerController {
+class InventoryListController {
 
      - TableView<InventoryItem> inventoryTable
 
