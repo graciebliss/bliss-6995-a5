@@ -1,5 +1,10 @@
 package ucf.assignments;
 
+/*
+ *  UCF COP3330 Summer 2021 Assignment 5 Solution
+ *  Copyright 2021 Gracie Bliss
+ */
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,12 +39,6 @@ public class Inventory {
                 itemsList.remove(i);
     }
 
-    public void editName(String serialNumber, String newName) {
-        //searches for the item by serial number since it is the only attribute that is completely unique and once it is found calls the set name function
-        for(int i = 0; i < itemsList.size(); i++)
-            if(itemsList.get(i).getSerialNum().equals(serialNumber))
-                itemsList.get(i).setName(newName);
-    }
 
     public void editSerialNum(String serialNum, String newSerialNum) {
         //loops through and finds the right item and calls the set serial number function
@@ -48,6 +47,14 @@ public class Inventory {
                 itemsList.get(i).setSerialNum(newSerialNum);
     }
 
+    public void editName(String serialNumber, String newName) {
+        //searches for the item by serial number since it is the only attribute that is completely unique and once it is found calls the set name function
+        for(int i = 0; i < itemsList.size(); i++)
+            if(itemsList.get(i).getSerialNum().equals(serialNumber))
+                itemsList.get(i).setName(newName);
+    }
+
+
     public void editValue(String serialNumber, double newValue) {
         //loops through and finds the correct serial number and then calls the set value function
         for(int i = 0; i < itemsList.size(); i++)
@@ -55,15 +62,16 @@ public class Inventory {
                 itemsList.get(i).setValue(newValue);
     }
 
+    public void sortSerialNum(){
+        //sorts by the serial number
+        itemsList.sort(comparing(InventoryItem::getSerialNum));
+    }
+
     public void sortName(){
         //sorts by the name
         itemsList.sort(comparing(InventoryItem::getName));
     }
 
-    public void sortSerialNum(){
-        //sorts by the serial number
-        itemsList.sort(comparing(InventoryItem::getSerialNum));
-    }
 
     public void sortValue(){
         //sorts by the value
